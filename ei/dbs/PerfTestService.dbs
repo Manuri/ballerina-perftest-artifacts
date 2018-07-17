@@ -1,0 +1,52 @@
+<data disableStreaming="true" enableBatchRequests="true" enableBoxcarring="true" name="PerfTestService" transports="http https local">
+   <config enableOData="false" id="PerfTestDS">
+      <property name="driverClassName">com.mysql.jdbc.Driver</property>
+      <property name="url">jdbc:mysql://localhost:3306/perftesteidss?useSSL=false</property>
+      <property name="username">root</property>
+      <property name="password">123</property>
+      <property name="maxActive">1000</property>
+      <property name="initialSize">1000</property>
+      <property name="minIdle">990</property>
+      <property name="maxIdle">1000</property>
+      <property name="maxWait">30000</property>
+      <property name="minEvictableIdleTimeMillis">600000</property>
+      <property name="autoCommit">true</property>
+      <property name="validationQueryTimeout">5000</property>
+   </config>
+   <query id="insertQuery" useConfig="PerfTestDS">
+      <sql>insert into inserttest values(:id,:name)</sql>
+      <param name="id" sqlType="INTEGER"/>
+      <param name="name" sqlType="STRING"/>
+   </query>
+   <query id="getQuery" useConfig="PerfTestDS">
+      <sql>select * from selecttest where id=1</sql>
+      <result outputType="json">{&#xd;"Employees": {&#xd;"Employee":&#xd;[{"id":"$id","name":"$name"}]&#xd;}&#xd;}</result>
+   </query>
+   <query id="get100Query" useConfig="PerfTestDS">
+      <sql>select * from selecttest where id&lt;101</sql>
+      <result outputType="json">{&#xd;"Employees": {&#xd;"Employee":&#xd;[{"id":"$id","name":"$name"}]&#xd;}&#xd;}</result>
+   </query>
+   <query id="batchinsertquery" useConfig="PerfTestDS">
+      <sql>insert into batchinserttest values(:id,:name)</sql>
+      <param name="id" sqlType="INTEGER"/>
+      <param name="name" sqlType="STRING"/>
+   </query>
+   <resource method="GET" path="get">
+      <call-query href="getQuery"/>
+   </resource>
+   <resource method="GET" path="get100">
+      <call-query href="get100Query"/>
+   </resource>
+   <resource method="POST" path="insert">
+      <call-query href="insertQuery">
+         <with-param name="id" query-param="id"/>
+         <with-param name="name" query-param="name"/>
+      </call-query>
+   </resource>
+   <resource method="POST" path="batchinsert">
+      <call-query href="batchinsertquery">
+         <with-param name="id" query-param="id"/>
+         <with-param name="name" query-param="name"/>
+      </call-query>
+   </resource>
+</data>
