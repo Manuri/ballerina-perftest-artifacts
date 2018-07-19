@@ -6,7 +6,7 @@ import ballerina/io;
 endpoint mysql:Client testDB {
     host: "localhost",
     port: 3306,
-    name: "perftestballerina",
+    name: "BALLERINA",
     username: "root",
     password: "123",
     poolOptions: { maximumPoolSize: 100 },

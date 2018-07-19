@@ -1,7 +1,7 @@
 <data disableStreaming="true" enableBatchRequests="true" enableBoxcarring="true" name="PerfTestService" transports="http https local">
    <config enableOData="false" id="PerfTestDS">
       <property name="driverClassName">com.mysql.jdbc.Driver</property>
-      <property name="url">jdbc:mysql://localhost:3306/perftesteidss?useSSL=false</property>
+      <property name="url">jdbc:mysql://localhost:3306/EI?useSSL=false</property>
       <property name="username">root</property>
       <property name="password">123</property>
       <property name="maxActive">100</property>
