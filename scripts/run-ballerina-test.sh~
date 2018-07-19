@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sh ballerina-start.sh
+
+sh ../jmeter/preconfigured_jmeter/apache-jmeter-4.0/bin/jmeter -t ../ballerina/jmx/ballerina-warmup.jmx
+
+sh ../jmeter/preconfigured_jmeter/apache-jmeter-4.0/bin/jmeter -t /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/JMXs/$2/$2.jmx -n  -e -l /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/$2/results/round$3/jtls/perftest$1.jtl -o /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/$2/results/round$3/reports/$1 -Jthreads=$1

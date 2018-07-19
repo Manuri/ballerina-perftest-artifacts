@@ -1,0 +1,838 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 134217728 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2640), pid=7362, tid=0x00007f21e67a5700
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_172-b03) (build 1.8.0_172-ea-b03)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.172-b03 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f2210085000):  VMThread [stack: 0x00007f21e66a5000,0x00007f21e67a6000] [id=7372]
+
+Stack: [0x00007f21e66a5000,0x00007f21e67a6000],  sp=0x00007f21e67a4230,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xa7989a]  VMError::report_and_die()+0x2ba
+V  [libjvm.so+0x4ee9ab]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x8b
+V  [libjvm.so+0x8dd033]  os::Linux::commit_memory_impl(char*, unsigned long, bool)+0x123
+V  [libjvm.so+0x8dd259]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0x29
+V  [libjvm.so+0x8d464a]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x2a
+V  [libjvm.so+0x947913]  PSVirtualSpace::expand_by(unsigned long)+0x53
+V  [libjvm.so+0x948d18]  PSYoungGen::resize_generation(unsigned long, unsigned long)+0xf8
+V  [libjvm.so+0x947e72]  PSYoungGen::resize(unsigned long, unsigned long)+0x22
+V  [libjvm.so+0x945171]  PSScavenge::invoke_no_policy()+0xf11
+V  [libjvm.so+0x940485]  PSParallelCompact::invoke(bool)+0x85
+V  [libjvm.so+0x4773e4]  CollectedHeap::collect_as_vm_thread(GCCause::Cause)+0x114
+V  [libjvm.so+0xa7ad21]  VM_CollectForMetadataAllocation::doit()+0x161
+V  [libjvm.so+0xa82315]  VM_Operation::evaluate()+0x55
+V  [libjvm.so+0xa806a5]  VMThread::evaluate_operation(VM_Operation*)+0x85
+V  [libjvm.so+0xa80c36]  VMThread::loop()+0x1e6
+V  [libjvm.so+0xa812e0]  VMThread::run()+0x70
+V  [libjvm.so+0x8dd398]  java_start(Thread*)+0x108
+
+VM_Operation (0x00007f2215e9ee10): CollectForMetadataAllocation, mode: safepoint, requested by thread 0x00007f221000f800
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f2211d04800 JavaThread "Abandoned connection cleanup thread" daemon [_thread_blocked, id=7386, stack(0x00007f21e4044000,0x00007f21e4145000)]
+  0x00007f2211879000 JavaThread "pool-2-thread-1" [_thread_blocked, id=7385, stack(0x00007f21e4345000,0x00007f21e4446000)]
+  0x00007f2211876800 JavaThread "pool-1-thread-1" [_thread_blocked, id=7384, stack(0x00007f21e4446000,0x00007f21e4547000)]
+  0x00007f22100d8800 JavaThread "Service Thread" daemon [_thread_blocked, id=7380, stack(0x00007f21e57ba000,0x00007f21e58bb000)]
+  0x00007f22100cd800 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=7379, stack(0x00007f21e58bb000,0x00007f21e59bc000)]
+  0x00007f22100cb800 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=7378, stack(0x00007f21e59bc000,0x00007f21e5abd000)]
+  0x00007f22100c9800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=7377, stack(0x00007f21e5abd000,0x00007f21e5bbe000)]
+  0x00007f22100c6800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=7376, stack(0x00007f21e5bbe000,0x00007f21e5cbf000)]
+  0x00007f22100c5000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=7375, stack(0x00007f21e5cbf000,0x00007f21e5dc0000)]
+  0x00007f2210091800 JavaThread "Finalizer" daemon [_thread_blocked, id=7374, stack(0x00007f21e64a3000,0x00007f21e65a4000)]
+  0x00007f221008d000 JavaThread "Reference Handler" daemon [_thread_blocked, id=7373, stack(0x00007f21e65a4000,0x00007f21e66a5000)]
+  0x00007f221000f800 JavaThread "main" [_thread_blocked, id=7363, stack(0x00007f2215da4000,0x00007f2215ea5000)]
+
+Other Threads:
+=>0x00007f2210085000 VMThread [stack: 0x00007f21e66a5000,0x00007f21e67a6000] [id=7372]
+  0x00007f22100de000 WatcherThread [stack: 0x00007f21e56b9000,0x00007f21e57ba000] [id=7381]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007f221000b930] Threads_lock - owner thread: 0x00007f2210085000
+[0x00007f221000be30] Heap_lock - owner thread: 0x00007f221000f800
+
+Heap:
+ PSYoungGen      total 141824K, used 10737K [0x00000000eab00000, 0x00000000f4000000, 0x0000000100000000)
+  eden space 131072K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f2b00000)
+  from space 10752K, 99% used [0x00000000f2b00000,0x00000000f357c4a8,0x00000000f3580000)
+  to   space 10752K, 0% used [0x00000000f3580000,0x00000000f3580000,0x00000000f4000000)
+ ParOldGen       total 175104K, used 16390K [0x00000000c0000000, 0x00000000cab00000, 0x00000000eab00000)
+  object space 175104K, 9% used [0x00000000c0000000,0x00000000c1001878,0x00000000cab00000)
+ Metaspace       used 20318K, capacity 21142K, committed 21296K, reserved 1067008K
+  class space    used 2662K, capacity 2857K, committed 2944K, reserved 1048576K
+
+Card table byte_map: [0x00007f21ff9a5000,0x00007f21ffba6000] byte_map_base: 0x00007f21ff3a5000
+
+Marking Bits: (ParMarkBitMap*) 0x00007f221527a2e0
+ Begin Bits: [0x00007f21fd047000, 0x00007f21fe047000)
+ End Bits:   [0x00007f21fe047000, 0x00007f21ff047000)
+
+Polling page: 0x00007f2215ec7000
+
+CodeCache: size=245760Kb used=7470Kb max_used=7482Kb free=238289Kb
+ bounds [0x00007f21fff66000, 0x00007f22006c6000, 0x00007f220ef66000]
+ total_blobs=2609 nmethods=2203 adapters=320
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 2.158 Thread 0x00007f22100cd800 2214   !   3       java.lang.ClassLoader::loadClass (122 bytes)
+Event: 2.159 Thread 0x00007f22100c6800 nmethod 2210 0x00007f22006ac6d0 code [0x00007f22006ac860, 0x00007f22006ad138]
+Event: 2.159 Thread 0x00007f22100cd800 nmethod 2214 0x00007f22006b0b10 code [0x00007f22006b0e80, 0x00007f22006b3198]
+Event: 2.160 Thread 0x00007f22100cd800 2215       3       java.lang.ClassLoader::getClassLoadingLock (35 bytes)
+Event: 2.160 Thread 0x00007f22100cd800 nmethod 2215 0x00007f22006abf90 code [0x00007f22006ac120, 0x00007f22006ac548]
+Event: 2.164 Thread 0x00007f22100cb800 nmethod 2208 0x00007f22006b7f10 code [0x00007f22006b8140, 0x00007f22006b9f50]
+Event: 2.166 Thread 0x00007f22100c9800 2216       4       java.lang.ref.Finalizer::register (10 bytes)
+Event: 2.168 Thread 0x00007f22100cd800 2217   !   3       java.lang.ClassLoader::getPackage (118 bytes)
+Event: 2.168 Thread 0x00007f22100c9800 nmethod 2216 0x00007f220069bf90 code [0x00007f220069c100, 0x00007f220069c458]
+Event: 2.169 Thread 0x00007f22100cd800 nmethod 2217 0x00007f22006afa50 code [0x00007f22006afc40, 0x00007f22006b0728]
+
+GC Heap History (5 events):
+Event: 0.908 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 76288K, used 65536K [0x00000000eab00000, 0x00000000f0000000, 0x0000000100000000)
+  eden space 65536K, 100% used [0x00000000eab00000,0x00000000eeb00000,0x00000000eeb00000)
+  from space 10752K, 0% used [0x00000000ef580000,0x00000000ef580000,0x00000000f0000000)
+  to   space 10752K, 0% used [0x00000000eeb00000,0x00000000eeb00000,0x00000000ef580000)
+ ParOldGen       total 175104K, used 0K [0x00000000c0000000, 0x00000000cab00000, 0x00000000eab00000)
+  object space 175104K, 0% used [0x00000000c0000000,0x00000000c0000000,0x00000000cab00000)
+ Metaspace       used 12699K, capacity 13100K, committed 13312K, reserved 1060864K
+  class space    used 1649K, capacity 1778K, committed 1792K, reserved 1048576K
+Event: 0.926 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 76288K, used 8801K [0x00000000eab00000, 0x00000000f4000000, 0x0000000100000000)
+  eden space 65536K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eeb00000)
+  from space 10752K, 81% used [0x00000000eeb00000,0x00000000ef398540,0x00000000ef580000)
+  to   space 10752K, 0% used [0x00000000f3580000,0x00000000f3580000,0x00000000f4000000)
+ ParOldGen       total 175104K, used 16K [0x00000000c0000000, 0x00000000cab00000, 0x00000000eab00000)
+  object space 175104K, 0% used [0x00000000c0000000,0x00000000c0004000,0x00000000cab00000)
+ Metaspace       used 12699K, capacity 13100K, committed 13312K, reserved 1060864K
+  class space    used 1649K, capacity 1778K, committed 1792K, reserved 1048576K
+}
+Event: 1.370 GC heap before
+{Heap before GC invocations=2 (full 0):
+ PSYoungGen      total 76288K, used 74337K [0x00000000eab00000, 0x00000000f4000000, 0x0000000100000000)
+  eden space 65536K, 100% used [0x00000000eab00000,0x00000000eeb00000,0x00000000eeb00000)
+  from space 10752K, 81% used [0x00000000eeb00000,0x00000000ef398540,0x00000000ef580000)
+  to   space 10752K, 0% used [0x00000000f3580000,0x00000000f3580000,0x00000000f4000000)
+ ParOldGen       total 175104K, used 16K [0x00000000c0000000, 0x00000000cab00000, 0x00000000eab00000)
+  object space 175104K, 0% used [0x00000000c0000000,0x00000000c0004000,0x00000000cab00000)
+ Metaspace       used 13306K, capacity 13928K, committed 14208K, reserved 1060864K
+  class space    used 1714K, capacity 1874K, committed 1920K, reserved 1048576K
+Event: 1.391 GC heap after
+Heap after GC invocations=2 (full 0):
+ PSYoungGen      total 141824K, used 8010K [0x00000000eab00000, 0x00000000f4000000, 0x0000000100000000)
+  eden space 131072K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f2b00000)
+  from space 10752K, 74% used [0x00000000f3580000,0x00000000f3d52bc0,0x00000000f4000000)
+  to   space 10752K, 0% used [0x00000000f2b00000,0x00000000f2b00000,0x00000000f3580000)
+ ParOldGen       total 175104K, used 24K [0x00000000c0000000, 0x00000000cab00000, 0x00000000eab00000)
+  object space 175104K, 0% used [0x00000000c0000000,0x00000000c0006000,0x00000000cab00000)
+ Metaspace       used 13306K, capacity 13928K, committed 14208K, reserved 1060864K
+  class space    used 1714K, capacity 1874K, committed 1920K, reserved 1048576K
+}
+Event: 2.173 GC heap before
+{Heap before GC invocations=3 (full 0):
+ PSYoungGen      total 141824K, used 86559K [0x00000000eab00000, 0x00000000f4000000, 0x0000000100000000)
+  eden space 131072K, 59% used [0x00000000eab00000,0x00000000ef7b50c8,0x00000000f2b00000)
+  from space 10752K, 74% used [0x00000000f3580000,0x00000000f3d52bc0,0x00000000f4000000)
+  to   space 10752K, 0% used [0x00000000f2b00000,0x00000000f2b00000,0x00000000f3580000)
+ ParOldGen       total 175104K, used 24K [0x00000000c0000000, 0x00000000cab00000, 0x00000000eab00000)
+  object space 175104K, 0% used [0x00000000c0000000,0x00000000c0006000,0x00000000cab00000)
+ Metaspace       used 20318K, capacity 21142K, committed 21296K, reserved 1067008K
+  class space    used 2662K, capacity 2857K, committed 2944K, reserved 1048576K
+
+Deoptimization events (10 events):
+Event: 1.936 Thread 0x00007f221000f800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00007f220063abdc method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 1.936 Thread 0x00007f221000f800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00007f220063abdc method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 1.936 Thread 0x00007f221000f800 Uncommon trap: reason=uninitialized action=reinterpret pc=0x00007f22006287e4 method=org.ballerinalang.util.codegen.PackageInfoReader$RuntimeTypeCreater.getRefType(CLjava/lang/String;Ljava/lang/String;)Lorg/ballerinalang/model/types/BType; @ 58
+Event: 1.951 Thread 0x00007f221000f800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f22006440d4 method=java.io.FilterInputStream.available()I @ 4
+Event: 2.065 Thread 0x00007f221000f800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f22006440d4 method=java.io.FilterInputStream.available()I @ 4
+Event: 2.066 Thread 0x00007f221000f800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f22006440d4 method=java.io.FilterInputStream.available()I @ 4
+Event: 2.070 Thread 0x00007f2211d04800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f220063ffd8 method=java.net.URL.<init>(Ljava/net/URL;Ljava/lang/String;Ljava/net/URLStreamHandler;)V @ 57
+Event: 2.070 Thread 0x00007f2211d04800 Uncommon trap: reason=unloaded action=reinterpret pc=0x00007f22002586b8 method=sun.misc.URLClassPath$FileLoader.getResource(Ljava/lang/String;Z)Lsun/misc/Resource; @ 142
+Event: 2.071 Thread 0x00007f221000f800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f22001a4ad8 method=java.lang.AbstractStringBuilder.append(Ljava/lang/String;)Ljava/lang/AbstractStringBuilder; @ 1
+Event: 2.092 Thread 0x00007f221000f800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f22002a9ff8 method=java.util.HashMap.hash(Ljava/lang/Object;)I @ 1
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 1.307 Thread 0x00007f221000f800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000ee21c950) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u172/10435.nc/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 1.308 Thread 0x00007f221000f800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000ee21e0d8) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u172/10435.nc/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 1.308 Thread 0x00007f221000f800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000ee21f5a8) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u172/10435.nc/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 1.308 Thread 0x00007f221000f800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000ee220b08) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u172/10435.nc/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 1.309 Thread 0x00007f221000f800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000ee224300) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u172/10435.nc/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 1.359 Thread 0x00007f221000f800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000eea96188) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u172/10435.nc/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 1.620 Thread 0x00007f221000f800 Implicit null exception at 0x00007f220056caab to 0x00007f220056cbd5
+Event: 1.622 Thread 0x00007f221000f800 Implicit null exception at 0x00007f220058de81 to 0x00007f220058df8d
+Event: 2.070 Thread 0x00007f221000f800 Implicit null exception at 0x00007f22001a46f3 to 0x00007f22001a4ac5
+Event: 2.092 Thread 0x00007f221000f800 Implicit null exception at 0x00007f22002a987b to 0x00007f22002a9fdd
+
+Events (10 events):
+Event: 2.168 loading class org/h2/mvstore/cache/CacheLongKeyLIRS$Config done
+Event: 2.168 loading class org/h2/mvstore/cache/CacheLongKeyLIRS
+Event: 2.168 loading class org/h2/mvstore/cache/CacheLongKeyLIRS done
+Event: 2.169 loading class org/h2/mvstore/cache/CacheLongKeyLIRS$Segment
+Event: 2.169 loading class org/h2/mvstore/cache/CacheLongKeyLIRS$Segment done
+Event: 2.170 loading class org/h2/mvstore/cache/CacheLongKeyLIRS$Entry
+Event: 2.170 loading class org/h2/mvstore/cache/CacheLongKeyLIRS$Entry done
+Event: 2.170 loading class org/h2/mvstore/MVMap
+Event: 2.170 loading class org/h2/mvstore/MVMap done
+Event: 2.172 Executing VM operation: CollectForMetadataAllocation
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:01 3983888                            /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/bin/java
+00600000-00601000 rw-p 00000000 08:01 3983888                            /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/bin/java
+01be2000-01c03000 rw-p 00000000 00:00 0                                  [heap]
+c0000000-cab00000 rw-p 00000000 00:00 0 
+cab00000-eab00000 ---p 00000000 00:00 0 
+eab00000-f4000000 rw-p 00000000 00:00 0 
+fc000000-100000000 ---p 00000000 00:00 0 
+100000000-1002e0000 rw-p 00000000 00:00 0 
+1002e0000-140000000 ---p 00000000 00:00 0 
+7f21a0000000-7f21a0021000 rw-p 00000000 00:00 0 
+7f21a0021000-7f21a4000000 ---p 00000000 00:00 0 
+7f21a4000000-7f21a4021000 rw-p 00000000 00:00 0 
+7f21a4021000-7f21a8000000 ---p 00000000 00:00 0 
+7f21a8000000-7f21a8021000 rw-p 00000000 00:00 0 
+7f21a8021000-7f21ac000000 ---p 00000000 00:00 0 
+7f21ac000000-7f21ac021000 rw-p 00000000 00:00 0 
+7f21ac021000-7f21b0000000 ---p 00000000 00:00 0 
+7f21b3e00000-7f21b4000000 rw-p 00000000 00:00 0 
+7f21b4000000-7f21b5055000 rw-p 00000000 00:00 0 
+7f21b5055000-7f21b8000000 ---p 00000000 00:00 0 
+7f21b8000000-7f21b8021000 rw-p 00000000 00:00 0 
+7f21b8021000-7f21bc000000 ---p 00000000 00:00 0 
+7f21bc000000-7f21bd19c000 rw-p 00000000 00:00 0 
+7f21bd19c000-7f21c0000000 ---p 00000000 00:00 0 
+7f21c0000000-7f21c131b000 rw-p 00000000 00:00 0 
+7f21c131b000-7f21c4000000 ---p 00000000 00:00 0 
+7f21c4000000-7f21c4021000 rw-p 00000000 00:00 0 
+7f21c4021000-7f21c8000000 ---p 00000000 00:00 0 
+7f21c8000000-7f21c968b000 rw-p 00000000 00:00 0 
+7f21c968b000-7f21cc000000 ---p 00000000 00:00 0 
+7f21cc000000-7f21cc021000 rw-p 00000000 00:00 0 
+7f21cc021000-7f21d0000000 ---p 00000000 00:00 0 
+7f21d0000000-7f21d0021000 rw-p 00000000 00:00 0 
+7f21d0021000-7f21d4000000 ---p 00000000 00:00 0 
+7f21d4000000-7f21d4021000 rw-p 00000000 00:00 0 
+7f21d4021000-7f21d8000000 ---p 00000000 00:00 0 
+7f21d8000000-7f21d8279000 rw-p 00000000 00:00 0 
+7f21d8279000-7f21dc000000 ---p 00000000 00:00 0 
+7f21dc000000-7f21dc021000 rw-p 00000000 00:00 0 
+7f21dc021000-7f21e0000000 ---p 00000000 00:00 0 
+7f21e0000000-7f21e0021000 rw-p 00000000 00:00 0 
+7f21e0021000-7f21e4000000 ---p 00000000 00:00 0 
+7f21e4044000-7f21e4047000 ---p 00000000 00:00 0 
+7f21e4047000-7f21e4331000 rw-p 00000000 00:00 0                          [stack:7386]
+7f21e4331000-7f21e4345000 ---p 00000000 00:00 0 
+7f21e4345000-7f21e4348000 ---p 00000000 00:00 0 
+7f21e4348000-7f21e4446000 rw-p 00000000 00:00 0                          [stack:7385]
+7f21e4446000-7f21e4449000 ---p 00000000 00:00 0 
+7f21e4449000-7f21e4547000 rw-p 00000000 00:00 0                          [stack:7384]
+7f21e4547000-7f21e4549000 r--s 00003000 08:01 3984579                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/builtin/0.0.0/builtin.zip
+7f21e45cb000-7f21e45cc000 rw-p 00000000 00:00 0 
+7f21e45cc000-7f21e45d1000 r--s 0009d000 08:01 3983732                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/jsse.jar
+7f21e45d1000-7f21e47d1000 rw-p 00000000 00:00 0 
+7f21e47d1000-7f21e47d2000 r--s 00004000 08:01 3984577                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/mime/0.0.0/mime.zip
+7f21e47d2000-7f21e47d3000 r--s 00001000 08:01 3984581                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/math/0.0.0/math.zip
+7f21e47d3000-7f21e47d4000 r--s 00002000 08:01 3984576                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/cache/0.0.0/cache.zip
+7f21e47d4000-7f21e47d6000 r--s 00000000 08:01 3984595                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/file/0.0.0/file.zip
+7f21e47d6000-7f21e47d8000 r--s 00004000 08:01 3984593                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/internal/0.0.0/internal.zip
+7f21e47d8000-7f21e47d9000 r--s 00001000 08:01 3984582                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/time/0.0.0/time.zip
+7f21e47d9000-7f21e47da000 r--s 00000000 08:01 3984590                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/crypto/0.0.0/crypto.zip
+7f21e47da000-7f21e47dc000 r--s 00002000 08:01 3984588                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/auth/0.0.0/auth.zip
+7f21e47dc000-7f21e47dd000 r--s 00000000 08:01 3984600                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/reflect/0.0.0/reflect.zip
+7f21e47dd000-7f21e47df000 r--s 00032000 08:01 3984574                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/http/0.0.0/http.zip
+7f21e47df000-7f21e47e0000 r--s 00001000 08:01 3984583                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/task/0.0.0/task.zip
+7f21e47e0000-7f21e47e1000 r--s 00000000 08:01 3984589                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/system/0.0.0/system.zip
+7f21e47e1000-7f21e47e2000 r--s 00002000 08:01 3984598                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/config/0.0.0/config.zip
+7f21e47e2000-7f21e47e3000 r--s 00000000 08:01 3984599                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/log/0.0.0/log.zip
+7f21e47e3000-7f21e47e4000 r--s 0000b000 08:01 3984592                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/transactions/0.0.0/transactions.zip
+7f21e47e4000-7f21e47e5000 r--s 00006000 08:01 3984584                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/io/0.0.0/io.zip
+7f21e47e5000-7f21e47e6000 r--s 00002000 08:01 3984596                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/sql/0.0.0/sql.zip
+7f21e47e6000-7f21e47e7000 r--s 00001000 08:01 3984575                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/jdbc/0.0.0/jdbc.zip
+7f21e47e7000-7f21e47e8000 r--s 00001000 08:01 3984594                    /usr/lib/ballerina/ballerina-0.980.0/lib/repo/ballerina/runtime/0.0.0/runtime.zip
+7f21e47e8000-7f21e49e8000 rw-p 00000000 00:00 0 
+7f21e49e8000-7f21e49e9000 r--s 00010000 08:01 3983655                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/ext/zipfs.jar
+7f21e49e9000-7f21e4be9000 rw-p 00000000 00:00 0 
+7f21e4be9000-7f21e4ee9000 rw-p 00000000 00:00 0 
+7f21e4ee9000-7f21e4eff000 r-xp 00000000 08:01 3983690                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libnet.so
+7f21e4eff000-7f21e50ff000 ---p 00016000 08:01 3983690                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libnet.so
+7f21e50ff000-7f21e5100000 rw-p 00016000 08:01 3983690                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libnet.so
+7f21e5100000-7f21e5111000 r-xp 00000000 08:01 3983680                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libnio.so
+7f21e5111000-7f21e5310000 ---p 00011000 08:01 3983680                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libnio.so
+7f21e5310000-7f21e5311000 rw-p 00010000 08:01 3983680                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libnio.so
+7f21e5311000-7f21e5314000 r--s 0001c000 08:01 3984054                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/toml-parser-0.980.0.jar
+7f21e5314000-7f21e5317000 r--s 0000e000 08:01 3983901                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/testerina-core-0.980.0.jar
+7f21e5317000-7f21e533c000 r--s 001fa000 08:01 3984036                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/swagger-to-ballerina-generator-0.980.0.jar
+7f21e533c000-7f21e5377000 r--s 001f6000 08:01 3984050                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/strip-bouncycastle-0.980.0.jar
+7f21e5377000-7f21e537b000 r--s 00025000 08:01 3983931                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/staxon-core-1.2.0.wso2v2.jar
+7f21e537b000-7f21e5382000 r--s 0003b000 08:01 3983915                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/snakeyaml-1.16.0.wso2v1.jar
+7f21e5382000-7f21e5384000 r--s 00001000 08:01 3983904                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/slf4j-jdk14-1.7.22.jar
+7f21e5384000-7f21e5386000 r--s 00009000 08:01 3984057                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/slf4j-api-1.7.22.jar
+7f21e5386000-7f21e538c000 r--s 00042000 08:01 3983902                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/siddhi-query-compiler-0.980.0.jar
+7f21e538c000-7f21e5391000 r--s 0001f000 08:01 3984027                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/siddhi-query-api-0.980.0.jar
+7f21e5391000-7f21e53a9000 r--s 000ef000 08:01 3984040                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/siddhi-core-0.980.0.jar
+7f21e53a9000-7f21e53ac000 r--s 0000f000 08:01 3984049                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/siddhi-annotations-0.980.0.jar
+7f21e53ac000-7f21e53ae000 r--s 00007000 08:01 3984013                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/quartz-jobs-2.3.0.jar
+7f21e53ae000-7f21e53b8000 r--s 0009f000 08:01 3984051                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/quartz-2.3.0.jar
+7f21e53b8000-7f21e53c8000 r--s 00149000 08:01 3983911                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/protobuf-java-3.5.1.jar
+7f21e53c8000-7f21e53ca000 r--s 00010000 08:01 3983907                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/protobuf-ballerina-0.980.0.jar
+7f21e53ca000-7f21e53cb000 r--s 00004000 08:01 3984037                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/org.wso2.transport.local-file-system-6.0.53.jar
+7f21e53cb000-7f21e53d2000 r--s 00050000 08:01 3984023                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/org.wso2.transport.http.netty-6.0.212.jar
+7f21e53d2000-7f21e53d5000 r--s 00011000 08:01 3984047                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/org.wso2.securevault-1.0.0-wso2v2.jar
+7f21e53d5000-7f21e53d9000 r--s 00019000 08:01 3983924                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/org.wso2.carbon.metrics.core-2.3.7.jar
+7f21e53d9000-7f21e53dc000 r--s 00009000 08:01 3983565                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/org.wso2.carbon.messaging-2.3.7.jar
+7f21e53dc000-7f21e53e0000 r--s 00017000 08:01 3983925                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/org.wso2.carbon.core-5.1.0.jar
+7f21e53e0000-7f21e53e1000 r--s 00001000 08:01 3984031                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/opentracing-util-0.31.0.jar
+7f21e53e1000-7f21e53e3000 r--s 00002000 08:01 3983566                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/opentracing-api-0.31.0.jar
+7f21e53e3000-7f21e53e4000 r--s 00013000 08:01 3983577                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/okio-1.13.0.jar
+7f21e53e4000-7f21e53ea000 r--s 0005e000 08:01 3983571                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/okhttp-3.9.1.jar
+7f21e53ea000-7f21e53f3000 r--s 00066000 08:01 3983568                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/netty-transport-4.1.19.Final.jar
+7f21e53f3000-7f21e53f5000 r--s 002a2000 08:01 3983899                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/netty-tcnative-boringssl-static-2.0.7.Final.jar
+7f21e53f5000-7f21e53f6000 r--s 00007000 08:01 3983903                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/netty-resolver-4.1.19.Final.jar
+7f21e53f6000-7f21e53f8000 r--s 00004000 08:01 3984035                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/netty-handler-proxy-4.1.19.Final.jar
+7f21e53f8000-7f21e53ff000 r--s 00055000 08:01 3983932                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/netty-handler-4.1.19.Final.jar
+7f21e53ff000-7f21e540b000 r--s 0007f000 08:01 3983919                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/netty-common-4.1.19.Final.jar
+7f21e540b000-7f21e5415000 r--s 00080000 08:01 3983913                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/netty-codec-http-4.1.19.Final.jar
+7f21e5415000-7f21e541d000 r--s 0005b000 08:01 3983574                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/netty-codec-http2-4.1.19.Final.jar
+7f21e541d000-7f21e5423000 r--s 00047000 08:01 3984048                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/netty-codec-4.1.19.Final.jar
+7f21e5423000-7f21e5427000 r--s 0003f000 08:01 3983921                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/netty-buffer-4.1.19.Final.jar
+7f21e5427000-7f21e5431000 r--s 000ec000 08:01 3981143                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/mysql-connector-java-5.1.46.jar
+7f21e5431000-7f21e5433000 r--s 0000e000 08:01 3984029                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/mimepull-1.9.7.jar
+7f21e5433000-7f21e5437000 r--s 00018000 08:01 3983583                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/metrics-core-3.1.0.jar
+7f21e5437000-7f21e543c000 r--s 00035000 08:01 3983927                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/libthrift-0.10.0.jar
+7f21e543c000-7f21e548b000 r--s 00427000 08:01 3983898                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/kubernetes-extension-0.980.0.jar
+7f21e548b000-7f21e548e000 r--s 0000d000 08:01 3984026                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jcommander-1.60.jar
+7f21e548e000-7f21e5494000 r--s 00033000 08:01 3983914                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jaxen-1.1.6.jar
+7f21e5494000-7f21e5496000 r--s 00006000 08:01 3984056                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/javax.transaction-api-1.2.jar
+7f21e5496000-7f21e5499000 r--s 0000d000 08:01 3984058                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/javax.jms-api-2.0.1.jar
+7f21e5499000-7f21e54a7000 r--s 00096000 08:01 3984028                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jaeger-thrift-0.24.0.jar
+7f21e54a7000-7f21e54ab000 r--s 0001b000 08:01 3984022                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jaeger-core-0.24.0.jar
+7f21e54ab000-7f21e54ac000 r--s 00009000 08:01 3984017                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jackson-dataformat-yaml-2.9.1.jar
+7f21e54ac000-7f21e54be000 r--s 00133000 08:01 3983580                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jackson-databind-2.9.1.jar
+7f21e54be000-7f21e54c2000 r--s 0004b000 08:01 3983929                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jackson-core-2.9.1.jar
+7f21e54c2000-7f21e54c5000 r--s 0000e000 08:01 3983933                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jackson-annotations-2.9.1.jar
+7f21e54c5000-7f21e54c8000 r--s 00020000 08:01 3983916                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/HikariCP-3.1.0.jar
+7f21e54c8000-7f21e54ca000 r--s 0001b000 08:01 3984043                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/HdrHistogram-2.1.10.jar
+7f21e54ca000-7f21e54d1000 r--s 0004b000 08:01 3983582                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/handlebars-4.0.6.jar
+7f21e54d1000-7f21e54e1000 r--s 001c7000 08:01 3983923                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/h2-1.4.197.jar
+7f21e54e1000-7f21e550d000 r--s 00208000 08:01 3983579                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/guava-19.0.jar
+7f21e550d000-7f21e550f000 r--s 00006000 08:01 3983906                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/geronimo-stax-api_1.0_spec-1.0.1.jar
+7f21e550f000-7f21e5511000 r--s 0000a000 08:01 3984034                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/geronimo-activation_1.1_spec-1.1.jar
+7f21e5511000-7f21e5554000 r--s 0036a000 08:01 3983584                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/docker-extension-0.980.0.jar
+7f21e5554000-7f21e5562000 r--s 002e0000 08:01 3983917                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/docerina-0.980.0.jar
+7f21e5562000-7f21e5565000 r--s 00012000 08:01 3983585                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/disruptor-3.3.2.wso2v2.jar
+7f21e5565000-7f21e5568000 r--s 00015000 08:01 3983572                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/commons-pool-1.5.6.wso2v1.jar
+7f21e5568000-7f21e556a000 r--s 0000d000 08:01 3983567                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/commons-logging-1.1.1.jar
+7f21e556a000-7f21e5572000 r--s 0006e000 08:01 3983573                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/commons-lang3-3.5.jar
+7f21e5572000-7f21e5574000 r--s 00005000 08:01 3983918                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/broker-rest-runner-0.970.0.jar
+7f21e5574000-7f21e557b000 r--s 00043000 08:01 3983930                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/broker-core-0.970.0.jar
+7f21e557b000-7f21e557d000 r--s 00008000 08:01 3984039                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/broker-coordination-0.970.0.jar
+7f21e557d000-7f21e557f000 r--s 0000a000 08:01 3984045                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/broker-common-0.970.0.jar
+7f21e557f000-7f21e5583000 r--s 00016000 08:01 3983587                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/broker-auth-0.970.0.jar
+7f21e5583000-7f21e5585000 r--s 0000f000 08:01 3984046                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-websub-0.980.0.jar
+7f21e5585000-7f21e5587000 r--s 00004000 08:01 3983569                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-transactions-0.980.0.jar
+7f21e5587000-7f21e5589000 r--s 00008000 08:01 3983588                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-time-0.980.0.jar
+7f21e5589000-7f21e558b000 r--s 00006000 08:01 3984016                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-task-0.980.0.jar
+7f21e558b000-7f21e558d000 r--s 00003000 08:01 3983586                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-system-0.980.0.jar
+7f21e558d000-7f21e558e000 r--s 00002000 08:01 3983909                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-streams-0.980.0.jar
+7f21e558e000-7f21e5590000 r--s 00016000 08:01 3984030                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-sql-0.980.0.jar
+7f21e5590000-7f21e5591000 r--s 00005000 08:01 3983589                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-runtime-0.980.0.jar
+7f21e5591000-7f21e5593000 r--s 00005000 08:01 3983910                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-reflect-0.980.0.jar
+7f21e5593000-7f21e5595000 r--s 00003000 08:01 3983578                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-prometheus-extension-0.980.0.jar
+7f21e5595000-7f21e5597000 r--s 0000c000 08:01 3984052                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-packerina-0.980.0.jar
+7f21e5597000-7f21e5599000 r--s 0000b000 08:01 3983920                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-observability-0.980.0.jar
+7f21e5599000-7f21e559b000 r--s 00003000 08:01 3984044                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-mysql-0.980.0.jar
+7f21e559b000-7f21e559d000 r--s 00012000 08:01 3984038                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-mime-0.980.0.jar
+7f21e559d000-7f21e559e000 r--s 00004000 08:01 3983912                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-metrics-extension-0.980.0.jar
+7f21e559e000-7f21e55a1000 r--s 0000a000 08:01 3984015                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-math-0.980.0.jar
+7f21e55a1000-7f21e55a2000 r--s 00006000 08:01 3984024                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-logging-0.980.0.jar
+7f21e55a2000-7f21e55a3000 r--s 00004000 08:01 3984020                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-log-api-0.980.0.jar
+7f21e55a3000-7f21e55a5000 r--s 0000e000 08:01 3984042                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-launcher-0.980.0.jar
+7f21e55a5000-7f21e55c4000 r--s 00168000 08:01 3983581                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-lang-0.980.0.jar
+7f21e55c4000-7f21e55c8000 r--s 00017000 08:01 3983934                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-jms-0.980.0.jar
+7f21e55c8000-7f21e55c9000 r--s 00004000 08:01 3984025                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-jdbc-0.980.0.jar
+7f21e55c9000-7f21e55ca000 r--s 00004000 08:01 3984021                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-jaeger-extension-0.980.0.jar
+7f21e55ca000-7f21e55ce000 r--s 00030000 08:01 3984032                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-io-0.980.0.jar
+7f21e55ce000-7f21e55d0000 r--s 00010000 08:01 3983576                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-internal-0.980.0.jar
+7f21e55d0000-7f21e55d6000 r--s 00048000 08:01 3984041                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-http-0.980.0.jar
+7f21e55d6000-7f21e55dd000 r--s 00044000 08:01 3983928                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-grpc-0.980.0.jar
+7f21e55dd000-7f21e55ea000 r--s 00098000 08:01 3984033                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-core-0.980.0.jar
+7f21e55ea000-7f21e55ec000 r--s 00003000 08:01 3984055                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-config-api-0.980.0.jar
+7f21e55ec000-7f21e55f6000 r--s 00083000 08:01 3983935                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-codegen-0.980.0.jar
+7f21e55f6000-7f21e5623000 r--s 00206000 08:01 3983570                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/andes-client-3.2.55.jar
+7f21e5623000-7f21e56b9000 r--s 0110c000 08:01 3983659                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/ext/jfxrt.jar
+7f21e56b9000-7f21e56ba000 ---p 00000000 00:00 0 
+7f21e56ba000-7f21e57ba000 rw-p 00000000 00:00 0                          [stack:7381]
+7f21e57ba000-7f21e57bd000 ---p 00000000 00:00 0 
+7f21e57bd000-7f21e58bb000 rw-p 00000000 00:00 0                          [stack:7380]
+7f21e58bb000-7f21e58be000 ---p 00000000 00:00 0 
+7f21e58be000-7f21e59bc000 rw-p 00000000 00:00 0                          [stack:7379]
+7f21e59bc000-7f21e59bf000 ---p 00000000 00:00 0 
+7f21e59bf000-7f21e5abd000 rw-p 00000000 00:00 0                          [stack:7378]
+7f21e5abd000-7f21e5ac0000 ---p 00000000 00:00 0 
+7f21e5ac0000-7f21e5bbe000 rw-p 00000000 00:00 0                          [stack:7377]
+7f21e5bbe000-7f21e5bc1000 ---p 00000000 00:00 0 
+7f21e5bc1000-7f21e5cbf000 rw-p 00000000 00:00 0                          [stack:7376]
+7f21e5cbf000-7f21e5cc2000 ---p 00000000 00:00 0 
+7f21e5cc2000-7f21e5dc0000 rw-p 00000000 00:00 0                          [stack:7375]
+7f21e5dc0000-7f21e64a3000 r--p 00000000 08:01 3939718                    /usr/lib/locale/locale-archive
+7f21e64a3000-7f21e64a6000 ---p 00000000 00:00 0 
+7f21e64a6000-7f21e65a4000 rw-p 00000000 00:00 0                          [stack:7374]
+7f21e65a4000-7f21e65a7000 ---p 00000000 00:00 0 
+7f21e65a7000-7f21e66a5000 rw-p 00000000 00:00 0                          [stack:7373]
+7f21e66a5000-7f21e66a6000 ---p 00000000 00:00 0 
+7f21e66a6000-7f21e8000000 rw-p 00000000 00:00 0                          [stack:7372]
+7f21e8000000-7f21e8021000 rw-p 00000000 00:00 0 
+7f21e8021000-7f21ec000000 ---p 00000000 00:00 0 
+7f21ec000000-7f21ec021000 rw-p 00000000 00:00 0 
+7f21ec021000-7f21f0000000 ---p 00000000 00:00 0 
+7f21f0000000-7f21f0021000 rw-p 00000000 00:00 0 
+7f21f0021000-7f21f4000000 ---p 00000000 00:00 0 
+7f21f4000000-7f21f4021000 rw-p 00000000 00:00 0 
+7f21f4021000-7f21f8000000 ---p 00000000 00:00 0 
+7f21f8000000-7f21f8021000 rw-p 00000000 00:00 0 
+7f21f8021000-7f21fc000000 ---p 00000000 00:00 0 
+7f21fc000000-7f21fc001000 r--s 00003000 08:01 3983922                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-h2-0.980.0.jar
+7f21fc001000-7f21fc003000 r--s 00005000 08:01 3983900                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-config-0.980.0.jar
+7f21fc003000-7f21fc006000 r--s 00013000 08:01 3983575                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-builtin-0.980.0.jar
+7f21fc006000-7f21fc010000 r--s 00082000 08:01 3983926                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/axiom-impl-1.2.20.jar
+7f21fc010000-7f21fc3fa000 rw-p 00000000 00:00 0 
+7f21fc3fa000-7f21fc5d1000 r--s 03d31000 08:01 3983807                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/rt.jar
+7f21fc5d1000-7f21ff047000 rw-p 00000000 00:00 0 
+7f21ff047000-7f21ff048000 ---p 00000000 00:00 0 
+7f21ff048000-7f21ff148000 rw-p 00000000 00:00 0                          [stack:7371]
+7f21ff148000-7f21ff149000 ---p 00000000 00:00 0 
+7f21ff149000-7f21ff249000 rw-p 00000000 00:00 0                          [stack:7370]
+7f21ff249000-7f21ff24a000 ---p 00000000 00:00 0 
+7f21ff24a000-7f21ff34a000 rw-p 00000000 00:00 0                          [stack:7369]
+7f21ff34a000-7f21ff34b000 ---p 00000000 00:00 0 
+7f21ff34b000-7f21ff44b000 rw-p 00000000 00:00 0                          [stack:7368]
+7f21ff44b000-7f21ff44c000 ---p 00000000 00:00 0 
+7f21ff44c000-7f21ff54c000 rw-p 00000000 00:00 0                          [stack:7367]
+7f21ff54c000-7f21ff54d000 ---p 00000000 00:00 0 
+7f21ff54d000-7f21ff64d000 rw-p 00000000 00:00 0                          [stack:7366]
+7f21ff64d000-7f21ff64e000 ---p 00000000 00:00 0 
+7f21ff64e000-7f21ff74e000 rw-p 00000000 00:00 0                          [stack:7365]
+7f21ff74e000-7f21ff74f000 ---p 00000000 00:00 0 
+7f21ff74f000-7f21ff8a5000 rw-p 00000000 00:00 0                          [stack:7364]
+7f21ff8a5000-7f21ff9a5000 ---p 00000000 00:00 0 
+7f21ff9a5000-7f21ff9fb000 rw-p 00000000 00:00 0 
+7f21ff9fb000-7f21ffafa000 ---p 00000000 00:00 0 
+7f21ffafa000-7f21ffb45000 rw-p 00000000 00:00 0 
+7f21ffb45000-7f21ffba5000 ---p 00000000 00:00 0 
+7f21ffba5000-7f21ffbc4000 rw-p 00000000 00:00 0 
+7f21ffbc4000-7f21fff66000 ---p 00000000 00:00 0 
+7f21fff66000-7f22006c6000 rwxp 00000000 00:00 0 
+7f22006c6000-7f220ef66000 ---p 00000000 00:00 0 
+7f220ef66000-7f220ef81000 r-xp 00000000 08:01 3983705                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libzip.so
+7f220ef81000-7f220f181000 ---p 0001b000 08:01 3983705                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libzip.so
+7f220f181000-7f220f182000 rw-p 0001b000 08:01 3983705                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libzip.so
+7f220f182000-7f220f18c000 r-xp 00000000 08:01 1838162                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f220f18c000-7f220f38b000 ---p 0000a000 08:01 1838162                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f220f38b000-7f220f38c000 r--p 00009000 08:01 1838162                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f220f38c000-7f220f38d000 rw-p 0000a000 08:01 1838162                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f220f38d000-7f220f398000 r-xp 00000000 08:01 1838223                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f220f398000-7f220f597000 ---p 0000b000 08:01 1838223                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f220f597000-7f220f598000 r--p 0000a000 08:01 1838223                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f220f598000-7f220f599000 rw-p 0000b000 08:01 1838223                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f220f599000-7f220f5b0000 r-xp 00000000 08:01 1838157                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f220f5b0000-7f220f7af000 ---p 00017000 08:01 1838157                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f220f7af000-7f220f7b0000 r--p 00016000 08:01 1838157                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f220f7b0000-7f220f7b1000 rw-p 00017000 08:01 1838157                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f220f7b1000-7f220f7b3000 rw-p 00000000 00:00 0 
+7f220f7b3000-7f220f7bc000 r-xp 00000000 08:01 1838220                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f220f7bc000-7f220f9bb000 ---p 00009000 08:01 1838220                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f220f9bb000-7f220f9bc000 r--p 00008000 08:01 1838220                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f220f9bc000-7f220f9bd000 rw-p 00009000 08:01 1838220                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f220f9bd000-7f220f9e8000 r-xp 00000000 08:01 3983668                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libjava.so
+7f220f9e8000-7f220fbe7000 ---p 0002b000 08:01 3983668                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libjava.so
+7f220fbe7000-7f220fbe9000 rw-p 0002a000 08:01 3983668                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libjava.so
+7f220fbe9000-7f220fbf6000 r-xp 00000000 08:01 3983709                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libverify.so
+7f220fbf6000-7f220fdf6000 ---p 0000d000 08:01 3983709                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libverify.so
+7f220fdf6000-7f220fdf8000 rw-p 0000d000 08:01 3983709                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/libverify.so
+7f220fdf8000-7f220fdff000 r-xp 00000000 08:01 1838214                    /lib/x86_64-linux-gnu/librt-2.19.so
+7f220fdff000-7f220fffe000 ---p 00007000 08:01 1838214                    /lib/x86_64-linux-gnu/librt-2.19.so
+7f220fffe000-7f220ffff000 r--p 00006000 08:01 1838214                    /lib/x86_64-linux-gnu/librt-2.19.so
+7f220ffff000-7f2210000000 rw-p 00007000 08:01 1838214                    /lib/x86_64-linux-gnu/librt-2.19.so
+7f2210000000-7f2211d53000 rw-p 00000000 00:00 0 
+7f2211d53000-7f2214000000 ---p 00000000 00:00 0 
+7f2214000000-7f2214001000 r--s 00006000 08:01 3983908                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-file-0.980.0.jar
+7f2214001000-7f221400d000 r--s 000a3000 08:01 3984018                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/axiom-dom-1.2.20.jar
+7f221400d000-7f2214018000 r--s 0005d000 08:01 3984019                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/axiom-api-1.2.20.jar
+7f2214018000-7f221401b000 r--s 00015000 08:01 3984053                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/apache-mime4j-core-0.7.2.jar
+7f221401b000-7f2214120000 r-xp 00000000 08:01 1838164                    /lib/x86_64-linux-gnu/libm-2.19.so
+7f2214120000-7f221431f000 ---p 00105000 08:01 1838164                    /lib/x86_64-linux-gnu/libm-2.19.so
+7f221431f000-7f2214320000 r--p 00104000 08:01 1838164                    /lib/x86_64-linux-gnu/libm-2.19.so
+7f2214320000-7f2214321000 rw-p 00105000 08:01 1838164                    /lib/x86_64-linux-gnu/libm-2.19.so
+7f2214321000-7f2214f91000 r-xp 00000000 08:01 3983689                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/server/libjvm.so
+7f2214f91000-7f2215191000 ---p 00c70000 08:01 3983689                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/server/libjvm.so
+7f2215191000-7f2215261000 rw-p 00c70000 08:01 3983689                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/server/libjvm.so
+7f2215261000-7f22152a7000 rw-p 00000000 00:00 0 
+7f22152a7000-7f2215465000 r-xp 00000000 08:01 1838165                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f2215465000-7f2215665000 ---p 001be000 08:01 1838165                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f2215665000-7f2215669000 r--p 001be000 08:01 1838165                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f2215669000-7f221566b000 rw-p 001c2000 08:01 1838165                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f221566b000-7f2215670000 rw-p 00000000 00:00 0 
+7f2215670000-7f2215673000 r-xp 00000000 08:01 1838213                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f2215673000-7f2215872000 ---p 00003000 08:01 1838213                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f2215872000-7f2215873000 r--p 00002000 08:01 1838213                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f2215873000-7f2215874000 rw-p 00003000 08:01 1838213                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f2215874000-7f221588a000 r-xp 00000000 08:01 3983672                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/jli/libjli.so
+7f221588a000-7f2215a89000 ---p 00016000 08:01 3983672                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/jli/libjli.so
+7f2215a89000-7f2215a8a000 rw-p 00015000 08:01 3983672                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172/lib/amd64/jli/libjli.so
+7f2215a8a000-7f2215aa3000 r-xp 00000000 08:01 1838166                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f2215aa3000-7f2215ca2000 ---p 00019000 08:01 1838166                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f2215ca2000-7f2215ca3000 r--p 00018000 08:01 1838166                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f2215ca3000-7f2215ca4000 rw-p 00019000 08:01 1838166                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f2215ca4000-7f2215ca8000 rw-p 00000000 00:00 0 
+7f2215ca8000-7f2215ccb000 r-xp 00000000 08:01 1838217                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f2215ccb000-7f2215ccc000 r--s 00004000 08:01 3983905                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-crypto-0.980.0.jar
+7f2215ccc000-7f2215cd2000 r--s 00045000 08:01 3983897                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/antlr4-runtime-4.5.1.wso2v1.jar
+7f2215cd2000-7f2215da4000 rw-p 00000000 00:00 0 
+7f2215da4000-7f2215da7000 ---p 00000000 00:00 0 
+7f2215da7000-7f2215ea9000 rw-p 00000000 00:00 0                          [stack:7363]
+7f2215ea9000-7f2215eaa000 r--s 0000b000 08:01 3984014                    /usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-cli-utils-0.980.0.jar
+7f2215eaa000-7f2215ebe000 rw-p 00000000 00:00 0 
+7f2215ebe000-7f2215ec6000 rw-s 00000000 08:01 2104117                    /tmp/hsperfdata_manurip/7362
+7f2215ec6000-7f2215ec7000 rw-p 00000000 00:00 0 
+7f2215ec7000-7f2215ec8000 ---p 00000000 00:00 0 
+7f2215ec8000-7f2215eca000 rw-p 00000000 00:00 0 
+7f2215eca000-7f2215ecb000 r--p 00022000 08:01 1838217                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f2215ecb000-7f2215ecc000 rw-p 00023000 08:01 1838217                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f2215ecc000-7f2215ecd000 rw-p 00000000 00:00 0 
+7ffcb0f9d000-7ffcb0fc1000 rw-p 00000000 00:00 0                          [stack]
+7ffcb0fdb000-7ffcb0fdd000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xbootclasspath/a: -Xms256m -Xmx1024m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/usr/lib/ballerina/ballerina-0.980.0/heap-dump.hprof -XX:PermSize=256m -XX:MaxPermSize=512m -Dballerina.home=/usr/lib/ballerina/ballerina-0.980.0 -Dballerina.version=0.980.0 -Djava.util.logging.config.class=org.ballerinalang.logging.util.LogConfigReader -Djava.util.logging.manager=org.ballerinalang.logging.BLogManager -Denable.nonblocking=false -Djava.security.egd=file:/dev/./urandom -Dfile.encoding=UTF8 
+java_command: org.ballerinalang.launcher.Main run /home/manurip/Documents/Work/Repositories/ballerina-platform/ballerina-examples/examples/xa-transactions/xa_transactions.bal
+java_class_path (initial): :/usr/lib/ballerina/ballerina-0.980.0/bre/lib/andes-client-3.2.55.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/antlr4-runtime-4.5.1.wso2v1.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/apache-mime4j-core-0.7.2.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/axiom-api-1.2.20.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/axiom-dom-1.2.20.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/axiom-impl-1.2.20.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-builtin-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-cli-utils-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-codegen-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-config-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-config-api-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-core-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-crypto-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-file-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-grpc-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-h2-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-http-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-internal-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-io-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-jaeger-extension-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-jdbc-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-jms-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-lang-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-launcher-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-log-api-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-logging-0.980.0.jar:/usr/lib/ballerina/ballerina-0.980.0/bre/lib/ballerina-math-0.980.0.j
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/ballerina/ballerina-0.980.0/bre/lib/jre1.8.0_172
+PATH=/usr/lib/ballerina/ballerina-0.980.0/bin:/home/manurip/Downloads/apache-ant-1.9.6/bin:/home/manurip/Documents/Work/groovy-2.4.9/bin:/usr/local/wum-dev/bin:/usr/local/wum-ga/wum/bin:/home/manurip/Documents/Work/Tasks/Support/wum-uc-1.0.0-linux-x64/bin:/home/manurip/Documents/Work/apache-maven-3.5.3/bin:/opt/db-derby-10.11.1.1-bin/bin:/home/manurip/Development/sbt/bin:/usr/lib/jvm/java-8-oracle/jdk1.8.0_162/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+SHELL=/usr/bin/zsh
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xa7a130], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xa7a130], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x8d78e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x8d78e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x8d78e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x8d78e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x8d9140], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x8da540], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x8da540], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x8da540], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x8da540], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=14.04
+DISTRIB_CODENAME=trusty
+DISTRIB_DESCRIPTION="Ubuntu 14.04.5 LTS"
+
+uname:Linux 3.13.0-52-generic #86-Ubuntu SMP Mon May 4 04:32:59 UTC 2015 x86_64
+libc:glibc 2.19 NPTL 2.19 
+rlimit: STACK 8192k, CORE 0k, NPROC 65535, NOFILE 65535, AS infinity
+load average:0.57 0.65 0.74
+
+/proc/meminfo:
+MemTotal:        7858280 kB
+MemFree:          112844 kB
+Buffers:            1236 kB
+Cached:           775716 kB
+SwapCached:        29420 kB
+Active:          3964872 kB
+Inactive:        1249648 kB
+Active(anon):    3956828 kB
+Inactive(anon):  1234760 kB
+Active(file):       8044 kB
+Inactive(file):    14888 kB
+Unevictable:     2206324 kB
+Mlocked:         2206324 kB
+SwapTotal:       3906556 kB
+SwapFree:              0 kB
+Dirty:               348 kB
+Writeback:             0 kB
+AnonPages:       6618940 kB
+Mapped:           275356 kB
+Shmem:            729980 kB
+Slab:             114212 kB
+SReclaimable:      46820 kB
+SUnreclaim:        67392 kB
+KernelStack:        9880 kB
+PageTables:        91416 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     7835696 kB
+Committed_AS:   24356500 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      360872 kB
+VmallocChunk:   34359348860 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:   2371584 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      107848 kB
+DirectMap2M:     4812800 kB
+DirectMap1G:     3145728 kB
+
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4810MQ CPU @ 2.80GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 1200.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid
+bogomips	: 5586.92
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4810MQ CPU @ 2.80GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 1800.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid
+bogomips	: 5586.92
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4810MQ CPU @ 2.80GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 1700.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid
+bogomips	: 5586.92
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4810MQ CPU @ 2.80GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 2500.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid
+bogomips	: 5586.92
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4810MQ CPU @ 2.80GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 2801.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid
+bogomips	: 5586.92
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4810MQ CPU @ 2.80GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 800.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid
+bogomips	: 5586.92
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4810MQ CPU @ 2.80GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 800.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid
+bogomips	: 5586.92
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4810MQ CPU @ 2.80GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 1900.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid
+bogomips	: 5586.92
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 7858280k(112844k free), swap 3906556k(0k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.172-b03) for linux-amd64 JRE (1.8.0_172-ea-b03), built on Jan 18 2018 10:27:25 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Mon Jul 16 17:13:36 2018
+elapsed time: 2 seconds (0d 0h 0m 2s)
+

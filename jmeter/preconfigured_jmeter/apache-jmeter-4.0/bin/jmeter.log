@@ -1,0 +1,68 @@
+2018-07-19 11:53:26,446 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2018-07-19 11:53:26,460 INFO o.a.j.JMeter: Loading user properties from: user.properties
+2018-07-19 11:53:26,460 INFO o.a.j.JMeter: Loading system properties from: system.properties
+2018-07-19 11:53:26,478 INFO o.a.j.JMeter: Copyright (c) 1998-2018 The Apache Software Foundation
+2018-07-19 11:53:26,478 INFO o.a.j.JMeter: Version 4.0 r1823414
+2018-07-19 11:53:26,479 INFO o.a.j.JMeter: java.version=1.8.0_162
+2018-07-19 11:53:26,479 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2018-07-19 11:53:26,479 INFO o.a.j.JMeter: os.name=Linux
+2018-07-19 11:53:26,479 INFO o.a.j.JMeter: os.arch=amd64
+2018-07-19 11:53:26,479 INFO o.a.j.JMeter: os.version=3.13.0-52-generic
+2018-07-19 11:53:26,479 INFO o.a.j.JMeter: file.encoding=UTF-8
+2018-07-19 11:53:26,479 INFO o.a.j.JMeter: Max memory     =1073741824
+2018-07-19 11:53:26,479 INFO o.a.j.JMeter: Available Processors =8
+2018-07-19 11:53:26,485 INFO o.a.j.JMeter: Default Locale=English (EN)
+2018-07-19 11:53:26,486 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2018-07-19 11:53:26,486 INFO o.a.j.JMeter: JMeterHome=/home/manurip/Documents/Work/Repositories/performance-ballerina/preconfigured_jmeter/apache-jmeter-4.0
+2018-07-19 11:53:26,486 INFO o.a.j.JMeter: user.dir  =/home/manurip/Documents/Work/Repositories/performance-ballerina/preconfigured_jmeter/apache-jmeter-4.0/bin
+2018-07-19 11:53:26,486 INFO o.a.j.JMeter: PWD       =/home/manurip/Documents/Work/Repositories/performance-ballerina/preconfigured_jmeter/apache-jmeter-4.0/bin
+2018-07-19 11:53:26,486 INFO o.a.j.JMeter: IP: 127.0.1.1 Name: manurip-ThinkPad-T540p FullName: manurip-ThinkPad-T540p
+2018-07-19 11:53:26,665 INFO o.a.j.g.a.LookAndFeelCommand: Installing Darcula LAF
+2018-07-19 11:53:26,712 INFO o.a.j.g.a.LookAndFeelCommand: Using look and feel: com.bulenkov.darcula.DarculaLaf [Darcula]
+2018-07-19 11:53:26,712 INFO o.a.j.JMeter: Setting LAF to: com.bulenkov.darcula.DarculaLaf
+2018-07-19 11:53:26,768 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2018-07-19 11:53:27,274 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2018-07-19 11:53:27,274 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2018-07-19 11:53:28,207 INFO o.j.r.JARSourceHTTP: Requesting https://jmeter-plugins.org/repo/?installID=linux-e0833ed51ed6a1502499ce744360954a-gui
+2018-07-19 11:53:29,296 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-07-19 11:53:29,297 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-07-19 11:53:29,298 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-07-19 11:53:29,298 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-07-19 11:53:29,298 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2018-07-19 11:53:29,299 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2018-07-19 11:53:29,395 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2018-07-19 11:53:29,396 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2018-07-19 11:53:29,396 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2018-07-19 11:53:29,396 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2018-07-19 11:53:30,193 INFO o.a.j.e.KeyToolUtils: keytool found at 'keytool'
+2018-07-19 11:53:30,194 INFO o.a.j.p.h.p.ProxyControl: HTTP(S) Test Script Recorder SSL Proxy will use keys that support embedded 3rd party resources in file /home/manurip/Documents/Work/Repositories/performance-ballerina/preconfigured_jmeter/apache-jmeter-4.0/bin/proxyserver.jks
+2018-07-19 11:53:30,572 INFO o.a.j.s.FileServer: Default base='/home/manurip/Documents/Work/Repositories/performance-ballerina/preconfigured_jmeter/apache-jmeter-4.0/bin'
+2018-07-19 11:53:30,597 INFO o.j.r.PluginManager: Plugins Status: [bzm-http2=1.2, jpgc-plugins-manager=1.1, websocket-samplers=1.2, jmeter-core=4.0, jmeter-ftp=4.0, jmeter-http=4.0, jmeter-jdbc=4.0, jmeter-jms=4.0, jmeter-junit=4.0, jmeter-java=4.0, jmeter-ldap=4.0, jmeter-mail=4.0, jmeter-mongodb=4.0, jmeter-native=4.0, jmeter-tcp=4.0, jmeter-components=4.0]
+2018-07-19 11:53:30,600 INFO o.j.r.PluginManagerMenuItem: Plugins Manager has upgrades: [jpgc-plugins-manager]
+2018-07-19 11:57:15,435 INFO o.a.j.g.a.Load: Loading file: /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/JMXs/ballerina/ballerina-warmup.jmx
+2018-07-19 11:57:15,436 INFO o.a.j.s.FileServer: Set new base='/home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/JMXs/ballerina'
+2018-07-19 11:57:15,578 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2018-07-19 11:57:15,582 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2018-07-19 11:57:15,584 INFO o.a.j.s.SaveService: Using SaveService properties version 4.0
+2018-07-19 11:57:15,587 INFO o.a.j.s.SaveService: Loading file: /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/JMXs/ballerina/ballerina-warmup.jmx
+2018-07-19 11:57:15,746 INFO o.a.j.s.FileServer: Set new base='/home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/JMXs/ballerina'
+2018-07-19 11:57:59,996 INFO o.a.j.g.a.Load: Loading file: /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx/DSS.jmx
+2018-07-19 11:57:59,997 INFO o.a.j.s.FileServer: Set new base='/home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx'
+2018-07-19 11:57:59,997 INFO o.a.j.s.SaveService: Loading file: /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx/DSS.jmx
+2018-07-19 11:58:00,171 INFO o.a.j.s.FileServer: Set new base='/home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx'
+2018-07-19 11:58:13,264 INFO o.a.j.g.a.Load: Loading file: /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx/DSS-warmup.jmx
+2018-07-19 11:58:13,264 INFO o.a.j.s.FileServer: Set new base='/home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx'
+2018-07-19 11:58:13,264 INFO o.a.j.s.SaveService: Loading file: /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx/DSS-warmup.jmx
+2018-07-19 11:58:13,472 INFO o.a.j.s.FileServer: Set new base='/home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx'
+2018-07-19 11:58:27,263 INFO o.a.j.g.a.Load: Loading file: /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/JMXs/ballerina/ballerina-warmup.jmx
+2018-07-19 11:58:27,263 INFO o.a.j.s.FileServer: Set new base='/home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/JMXs/ballerina'
+2018-07-19 11:58:27,263 INFO o.a.j.s.SaveService: Loading file: /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/JMXs/ballerina/ballerina-warmup.jmx
+2018-07-19 11:58:27,313 INFO o.a.j.s.FileServer: Set new base='/home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/JMXs/ballerina'
+2018-07-19 11:59:01,416 INFO o.a.j.g.a.Load: Loading file: /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx/DSS-warmup.jmx
+2018-07-19 11:59:01,416 INFO o.a.j.s.FileServer: Set new base='/home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx'
+2018-07-19 11:59:01,416 INFO o.a.j.s.SaveService: Loading file: /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx/DSS-warmup.jmx
+2018-07-19 11:59:01,448 INFO o.a.j.s.FileServer: Set new base='/home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx'
+2018-07-19 11:59:13,357 INFO o.a.j.g.a.Load: Loading file: /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx/DSS.jmx
+2018-07-19 11:59:13,357 INFO o.a.j.s.FileServer: Set new base='/home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx'
+2018-07-19 11:59:13,357 INFO o.a.j.s.SaveService: Loading file: /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx/DSS.jmx
+2018-07-19 11:59:13,532 INFO o.a.j.s.FileServer: Set new base='/home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/ballerina/ballerina-perftest-artifacts/ei/jmx'
