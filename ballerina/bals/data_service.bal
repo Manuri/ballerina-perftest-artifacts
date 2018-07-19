@@ -9,7 +9,7 @@ endpoint mysql:Client testDB {
     name: "perftestballerina",
     username: "root",
     password: "123",
-    poolOptions: { maximumPoolSize: 1000 },
+    poolOptions: { maximumPoolSize: 100 },
     dbOptions: { useSSL: false }
 };
 

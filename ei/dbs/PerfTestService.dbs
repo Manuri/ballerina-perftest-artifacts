@@ -4,10 +4,10 @@
       <property name="url">jdbc:mysql://localhost:3306/perftesteidss?useSSL=false</property>
       <property name="username">root</property>
       <property name="password">123</property>
-      <property name="maxActive">1000</property>
-      <property name="initialSize">1000</property>
-      <property name="minIdle">990</property>
-      <property name="maxIdle">1000</property>
+      <property name="maxActive">100</property>
+      <property name="initialSize">100</property>
+      <property name="minIdle">90</property>
+      <property name="maxIdle">100</property>
       <property name="maxWait">30000</property>
       <property name="minEvictableIdleTimeMillis">600000</property>
       <property name="autoCommit">true</property>
