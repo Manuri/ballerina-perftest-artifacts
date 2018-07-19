@@ -1,2 +1,0 @@
- #bin/bash
-sh /home/manurip/Documents/Work/Repositories/performance-ballerina/preconfigured_jmeter/apache-jmeter-4.0/bin/jmeter -t /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/JMXs/$2/$2.jmx -n  -e -l /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/$2/results/round$3/jtls/perftest$1.jtl -o /home/manurip/Documents/Work/Tasks/RnD/Ballerina/PerfTest/$2/results/round$3/reports/$1 -Jthreads=$1
