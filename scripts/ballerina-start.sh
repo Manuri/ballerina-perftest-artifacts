@@ -59,16 +59,17 @@ fi
 
 echo "Setting Heap to ${heap_size}"
 
-echo "Enabling GC Logs"
-export JAVA_OPTS="-XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:${ballerina_path}/logs/gc.log -Xms${heap_size} -Xmx${heap_size}"
+#echo "Enabling GC Logs"
+#export JAVA_OPTS="-XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:${ballerina_path}/logs/gc.log -Xms${heap_size} -Xmx${heap_size}"
 
 echo "Building bal file"
 cd ${ballerina_path}/bin
 ./ballerina build ${bal_file}
-cd $HOME
+#./ballerina build /home/ubuntu/ballerina-perftest-artifacts/ballerina/bals/data_service.bal 
+#cd $HOME
 
 echo "Starting Ballerina with Flags: " $flags
-nohup ${ballerina_path}/bin/ballerina run ../ballerina/bals/${bal_file}x $flags &> ${ballerina_path}/logs/ballerina.log&
+nohup ./ballerina run ${bal_file}x $flags &> ${ballerina_path}/logs/ballerina.log&
 
 # TODO Do a curl and check if service is started
 echo "Wait for 10 seconds to make sure that the server is ready to accept API requests."
