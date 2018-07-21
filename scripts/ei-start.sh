@@ -17,8 +17,8 @@
 # Start WSO2 Enterprise Integrator
 # ----------------------------------------------------------------------------
 
-product="wso2ei-6.3.0"
-heap_size="2"
+product=wso2ei-6.3.0
+heap_size=2
 #if [[ -z $product ]]; then
     #product=wso2ei-6.3.0
 #fi
