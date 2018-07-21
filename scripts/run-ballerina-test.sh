@@ -9,6 +9,6 @@ do
 	bash ballerina-start.sh 1 data_service.bal
 	sh ../jmeter/preconfigured_jmeter/apache-jmeter-4.0/bin/jmeter -n -t ../ballerina/jmx/ballerina-warmup.jmx
 	sh ../jmeter/preconfigured_jmeter/apache-jmeter-4.0/bin/jmeter -t ../ballerina/jmx/ballerina-$jmxfile.jmx -n  -e -l ../results/ballerina/jtls/$jmxfile/$var.jtl -o ../results/ballerina/reports/$jmxfile/$var -Jthreads=$var -Jduration=1200
-	bash db-clean.sh
+	bash db-clean.sh BALLERINA
 	done
 done
