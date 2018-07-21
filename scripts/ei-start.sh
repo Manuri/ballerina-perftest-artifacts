@@ -17,14 +17,14 @@
 # Start WSO2 Enterprise Integrator
 # ----------------------------------------------------------------------------
 
-product=$1
-heap_size=$2
-if [[ -z $product ]]; then
-    product=wso2ei-6.3.0
-fi
-if [[ -z $heap_size ]]; then
-    heap_size="4"
-fi
+product="wso2ei-6.3.0"
+heap_size="2"
+#if [[ -z $product ]]; then
+    #product=wso2ei-6.3.0
+#fi
+#if [[ -z $heap_size ]]; then
+    #heap_size="2"
+#fi
 
 jvm_dir=""
 for dir in /usr/lib/jvm/jdk1.8*; do
@@ -66,8 +66,8 @@ fi
 echo "Setting Heap to ${heap_size}GB"
 export JVM_MEM_OPTS="-Xms${heap_size}G -Xmx${heap_size}G"
 
-echo "Enabling GC Logs"
-export JAVA_OPTS="-XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:$product_path/repository/logs/gc.log"
+#echo "Enabling GC Logs"
+#export JAVA_OPTS="-XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:$product_path/repository/logs/gc.log"
 
 echo "Starting EI"
 $startup_script start

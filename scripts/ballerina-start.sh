@@ -19,17 +19,17 @@
 
 # Required parameters -> heap size, ballerina file, flags
 
-heap_size=$1
-if [[ -z $heap_size ]]; then
-    echo "Running with default heap 1 GB."
-    heap_size="1G"
-fi
+heap_size="2G"
+#if [[ -z $heap_size ]]; then
+    #echo "Running with default heap 1 GB."
+    #heap_size="2G"
+#fi
 
-bal_file=$2
-if [[ -z $bal_file ]]; then
-    echo "No bal file specified."
-    exit 1
-fi
+bal_file=data_service.bal
+#if [[ -z $bal_file ]]; then
+    #echo "No bal file specified."
+    #exit 1
+#fi
 
 flags="${@:3:99}"
 
@@ -61,6 +61,7 @@ echo "Setting Heap to ${heap_size}"
 
 #echo "Enabling GC Logs"
 #export JAVA_OPTS="-XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:${ballerina_path}/logs/gc.log -Xms${heap_size} -Xmx${heap_size}"
+export JAVA_OPTS="-Xms${heap_size} -Xmx${heap_size}"
 
 echo "Building bal file"
 cd ${ballerina_path}/bin
